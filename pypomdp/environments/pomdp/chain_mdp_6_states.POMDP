@@ -1,0 +1,55 @@
+# A 1D grid world where the agent can only move left or right. The rewarding 
+# states are the two edges in the grid. Invalid moves such as jumping off the edge results in heavy punishment
+
+discount: 0.99
+values: reward
+states: 6
+actions: right left
+costs: -1 10
+observations: 3
+init_state: 2
+
+T: right : 0 : 1 1.0
+T: right : 1 : 2 1.0
+T: right : 2 : 3 1.0
+T: right : 3 : 4 1.0
+T: right : 4 : 5 1.0
+T: right : 5 : 5 1.0
+
+T: left : 0 : 0 1.0
+T: left : 1 : 0 1.0
+T: left : 2 : 1 1.0
+T: left : 3 : 2 1.0
+T: left : 4 : 3 1.0
+T: left : 5 : 4 1.0
+
+
+O: right
+1 0 0
+0 1 0
+0 1 0
+0 1 0
+0 1 0
+0 0 1
+
+O: left
+1 0 0
+0 1 0
+0 1 0
+0 1 0
+0 1 0
+0 0 1
+
+R: left : 0 : * : * -1
+R: left : 1 : * : * -1
+R: left : 2 : * : * -1
+R: left : 3 : * : * -1
+R: left : 4 : * : * -1
+R: left : 5 : * : * -1
+
+R: right : 0 : * : * -1
+R: right : 1 : * : * -1
+R: right : 2 : * : * -1
+R: right : 3 : * : * -1
+R: right : 4 : * : * -1
+R: right : 5 : * : * 10
